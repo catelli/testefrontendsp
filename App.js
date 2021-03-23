@@ -15,8 +15,6 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         <Routes />
       </SafeAreaView>
-      
-     
     </Provider>
     
   );
