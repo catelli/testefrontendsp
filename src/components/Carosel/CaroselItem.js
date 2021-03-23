@@ -1,10 +1,11 @@
 import React from 'react'
-import { View, StyleSheet, Text, Image, Dimensions, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, Text, Image, Dimensions, TouchableOpacity} from 'react-native'
 
 const { width, height } = Dimensions.get('window')
 
 
-const CarouselItem = ({ item }) => {
+const CarouselItem = ({ item, navigation }) => {
+    
     return (
         <View style={styles.cardView}>
             <View style={styles.textView}>
@@ -12,9 +13,20 @@ const CarouselItem = ({ item }) => {
                 <Text style={styles.itemDescription}>{item.description}</Text>
                 <Text style={styles.itemDescription}>Duração:{item.duration} </Text>
                 <Text style={styles.itemDescription}>Investimento</Text>
-                <Text style={styles.itemPrice}>{item.price}</Text>
-                <TouchableOpacity style={styles.itemButton}>
-                    <Text price={item.price} style={styles.itemButtonText}>Comprar</Text>
+                <Text style={styles.itemPrice}>{item.price.toFixed(2)}</Text>
+                <TouchableOpacity 
+                    onPress={() => {
+                        navigation.navigate(
+                            'cardStage',
+                            {
+                                price: item.price,
+                                prodTitle: item.name,
+                            }
+                        )
+                    }}
+                    style={styles.itemButton}
+                >
+                    <Text style={styles.itemButtonText}>Comprar</Text>
                 </TouchableOpacity>
             </View>
         </View>

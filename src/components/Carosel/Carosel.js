@@ -11,6 +11,8 @@ let flatList
 
 
 export default props => {
+    
+    
     const  [products, setProducts] = useState([]);
     const scrollX = new Animated.Value(0)
     let position = Animated.divide(scrollX, width)
@@ -25,7 +27,6 @@ export default props => {
         } 
     loadProducts();
 },[])
-    
     return (
         <View style={{
                 flex: 1,
@@ -53,7 +54,7 @@ export default props => {
                     decelerationRate={"fast"}
                     showsHorizontalScrollIndicator={false}
                     renderItem={({ item }) => {
-                        return <CarouselItem item={item} />
+                        return <CarouselItem navigation={props.navigation} item={item} />
                     }}
                     onScroll={Animated.event(
                         [{ nativeEvent: { contentOffset: { x: scrollX } } }]

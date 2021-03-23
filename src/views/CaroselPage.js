@@ -3,8 +3,9 @@ import React from 'react';
 import Carosel from '../components/Carosel/Carosel'
 
 export default props => {
+    
     return (
-        <Carosel />
+        <Carosel navigation={props.navigation}/>
       );
     
 }
