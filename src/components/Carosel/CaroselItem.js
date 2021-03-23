@@ -11,9 +11,19 @@ const CarouselItem = ({ item, navigation }) => {
             <View style={styles.textView}>
                 <Text style={styles.itemTitle}>{item.name}</Text>
                 <Text style={styles.itemDescription}>{item.description}</Text>
-                <Text style={styles.itemDescription}>Duração:{item.duration} </Text>
-                <Text style={styles.itemDescription}>Investimento</Text>
-                <Text style={styles.itemPrice}>{item.price.toFixed(2)}</Text>
+                <View style={styles.itemRow}>
+                    <Text style={styles.itemDescriptionDura}>Duração: </Text>
+                    <Text style={styles.itemDescription}>{item.duration}</Text>
+                </View>
+                <View style={styles.itemRowLine}>
+                    <Text style={styles.itemDescriptionInves}>Investimento:</Text>
+                  
+                </View>
+                <View style={styles.itemRowPrice}>
+                    <Text style={styles.itemDescriptionRs}>R$</Text>
+                    <Text style={styles.itemPrice}>{item.price.toFixed(2)}</Text>
+                </View>
+                
                 <TouchableOpacity 
                     onPress={() => {
                         navigation.navigate(
@@ -56,6 +66,19 @@ const styles = StyleSheet.create({
         margin: 10,
         left: 5,
     },
+    itemRow: {
+        flexDirection: 'row',
+        paddingBottom: 10
+    },
+    itemRowPrice: {
+        flexDirection: 'row',
+        left: '16%',
+    },
+    itemRowLine: {
+        width: '70%',
+        alignItems: 'center',
+        marginTop: -10
+    },
     itemTitle: {
         color: '#707070',
         fontSize: 24,
@@ -70,6 +93,7 @@ const styles = StyleSheet.create({
     },
     itemDescription: {
         color: '#000',
+        lineHeight: 20,
         fontSize: 12,
         shadowColor: '#000',
         shadowOffset: { width: 0.8, height: 0.8 },
@@ -77,8 +101,44 @@ const styles = StyleSheet.create({
         shadowRadius: 3,
         elevation: 5
     },
+    itemDescriptionInves: {
+        color: '#000',
+        lineHeight: 20,
+        alignItems: 'flex-start',
+        fontSize: 10,
+        shadowColor: '#000',
+        shadowOffset: { width: 0.8, height: 0.8 },
+        shadowOpacity: 1,
+        shadowRadius: 3,
+        elevation: 5,
+        top: 5
+    },
+    itemDescriptionDura: {
+        color: '#000',
+        fontWeight: 'bold',
+        lineHeight: 20,
+        fontSize: 12,
+        shadowColor: '#000',
+        shadowOffset: { width: 0.8, height: 0.8 },
+        shadowOpacity: 1,
+        shadowRadius: 3,
+        elevation: 5
+    },
+    itemDescriptionRs: {
+        color: '#7BBDF5',
+        fontWeight: 'bold',
+        lineHeight: 20,
+        fontSize: 12,
+        shadowColor: '#000',
+        top: 5,
+        shadowOffset: { width: 0.8, height: 0.8 },
+        shadowOpacity: 1,
+        shadowRadius: 3,
+        elevation: 5
+    },
     itemPrice: {
         color: '#7BBDF5',
+        fontWeight: 'bold',
         fontSize: 30,
         shadowColor: '#000',
         shadowOffset: { width: 0.8, height: 0.8 },
@@ -88,7 +148,7 @@ const styles = StyleSheet.create({
     },
     itemButton: {
         backgroundColor: '#FF8686',
-        marginTop: 15,
+        marginTop: 5,
         height: 45,
         padding: 12,
         marginLeft: 15,
