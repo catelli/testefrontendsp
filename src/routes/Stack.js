@@ -14,6 +14,7 @@ export default props => (
                  name="Carosel"
                  options={{
                      title: 'Loja virtual',
+                     headerLeft: null,
                      headerTitleAlign: 'center',
                      headerStyle: {
                         backgroundColor: '#FF8686',
@@ -32,6 +33,17 @@ export default props => (
                    headerTintColor: '#fff'
                 }}
                  component={cardStage} />
-                 <Stack.Screen name="paymentOk" component={paymentOk} />
+                 <Stack.Screen 
+                 name="paymentOk" 
+                 options={{
+                    title: 'Pagamento com Cartão',
+                    headerLeft: null,
+                    headerTitleAlign: 'center',
+                    headerStyle: {
+                       backgroundColor: '#FF8686',
+                   },
+                   headerTintColor: '#fff'
+                }}
+                 component={paymentOk} />
              </Stack.Navigator>
 )

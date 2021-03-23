@@ -14,7 +14,7 @@ export default props => {
 const styles = StyleSheet.create({
     cardView: {
         backgroundColor: '#7BBDF5',
-        width: '90%',
+        width: '80%',
         height: 164,
         borderRadius: 8
     }
